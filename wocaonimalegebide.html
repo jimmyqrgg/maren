@@ -23,12 +23,16 @@
   --maxw: 1080px;
 }
 
+* {
+  box-sizing: border-box;
+  font-family: "MaShanZheng", sans-serif;
+}
+
 html, body {
   height: 100%;
   margin: 0;
   background: var(--bg-gradient);
   color: var(--text);
-  font-family: "MaShanZheng", "Noto Sans SC", "PingFang SC", "Microsoft Yahei", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -39,7 +43,6 @@ html, body {
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
-  box-sizing: border-box;
 }
 
 .container {
@@ -74,7 +77,6 @@ header h1 {
 .card h2 {
   margin: 0 0 12px 0;
   font-size: 20px;
-  color: var(--text);
   text-shadow: 0 0 8px rgba(255,255,255,0.2);
 }
 
@@ -82,10 +84,8 @@ header h1 {
   margin: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-family: "MaShanZheng", inherit;
   font-size: 16px;
   line-height: 1.55;
-  color: var(--text);
 }
 
 @media (min-width: 900px) {
@@ -119,7 +119,6 @@ footer {
   border-radius: 10px;
   cursor: pointer;
   font-size: 14px;
-  font-family: inherit;
 }
 
 .btn:active {
@@ -144,6 +143,7 @@ footer {
 }
 </style>
 </head>
+
 <body>
 <div class="wrap">
   <div class="container">
@@ -152,7 +152,6 @@ footer {
       <h1>骂人宝典</h1>
     </header>
 
-    <!-- Section 0 -->
     <section class="card">
       <h2>随用版 - 随地随用，瞬间伤害</h2>
       <pre id="t0">抱歉我眼睛太小了看不清你有脸没脸
@@ -180,7 +179,6 @@ footer {
       </div>
     </section>
 
-    <!-- Section 1 -->
     <section class="card">
       <h2>网战版 - 理解更慢，阴阳怪气</h2>
       <pre id="t1">你先别急，我不是故意戳中你的弱点——脑子
@@ -203,7 +201,6 @@ footer {
       </div>
     </section>
 
-    <!-- Section 2 -->
     <section class="card">
       <h2>情况性 - 绝地反击，越说越溜</h2>
       <pre id="t2">你是小明吗，我的年龄都看不出？（当别人叫你小学生而你是中学生）
@@ -220,7 +217,6 @@ footer {
       </div>
     </section>
 
-    <!-- Section 3 -->
     <section class="card">
       <h2>特殊性 - 绝对回击，见招拆招</h2>
       <pre id="t3">急了 -> 被狗咬了能不急么 -> 狗改不了吃屎 -> 你是文盲吗咬和吃分不清楚啊</pre>
@@ -229,7 +225,6 @@ footer {
       </div>
     </section>
 
-    <!-- Section 4 -->
     <section class="card full">
       <h2>回击性 - 伤害反弹，自身无敌</h2>
       <pre id="t4">你先别急着叫，让我戴上降噪耳机尊重一下自己。
