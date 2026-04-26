@@ -4,10 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" href="form.png">
-<title>Student Survey</title>
+<title>骂人宝典</title>
 
 <style>
-/* 字体 */
 @font-face {
   font-family: 'MaShanZheng';
   src: url('./MaShanZheng.ttf') format('truetype');
@@ -16,9 +15,7 @@
   font-display: swap;
 }
 
-/* 颜色变量 */
 :root {
-  --bg-dark: #001a2c;  /* 深蓝黑背景 */
   --bg-gradient: linear-gradient(145deg, #0b0f2c 0%, #001f4d 100%);
   --text: #ffffff;
   --card-bg: rgba(255,255,255,0.05);
@@ -26,112 +23,124 @@
   --maxw: 1080px;
 }
 
-/* 基本样式 */
 html, body {
-  height:100%;
-  margin:0;
+  height: 100%;
+  margin: 0;
   background: var(--bg-gradient);
   color: var(--text);
-  font-family: "MaShaZheng", "Noto Sans SC", "PingFang SC", "Microsoft Yahei", sans-serif;
+  font-family: "MaShanZheng", "Noto Sans SC", "PingFang SC", "Microsoft Yahei", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 页面布局 */
 .wrap {
-  min-height:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px 20px;
-  box-sizing:border-box;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 .container {
-  width:100%;
+  width: 100%;
   max-width: var(--maxw);
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr;
-  gap:24px;
+  gap: 24px;
 }
 
-/* 标题 */
 header {
-  text-align:center;
-  margin-bottom:20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 header h1 {
-  margin:0;
-  font-size:26px;
-  letter-spacing:1px;
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 1px;
   text-shadow: 0 0 12px rgba(255,255,255,0.3);
 }
 
-/* 卡片 */
 .card {
   background: var(--card-bg);
-  border-radius:14px;
-  padding:24px;
+  border-radius: 14px;
+  padding: 24px;
   box-shadow: 0 8px 28px rgba(0,0,0,0.4);
-  border:1px solid var(--card-border);
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(5px);
 }
 
 .card h2 {
-  margin:0 0 12px 0;
-  font-size:20px;
+  margin: 0 0 12px 0;
+  font-size: 20px;
   color: var(--text);
   text-shadow: 0 0 8px rgba(255,255,255,0.2);
 }
 
-/* 文本保持原格式 */
 .card pre {
-  margin:0;
+  margin: 0;
   white-space: pre-wrap;
   word-wrap: break-word;
-  font-family: "MaShaZheng", inherit;
-  font-size:16px;
-  line-height:1.55;
+  font-family: "MaShanZheng", inherit;
+  font-size: 16px;
+  line-height: 1.55;
   color: var(--text);
 }
 
-/* 小屏优化 */
-@media (min-width:900px){
+@media (min-width: 900px) {
   .container {
     grid-template-columns: 1fr 1fr;
   }
-  .card.three {
+  .card.full {
     grid-column: 1 / -1;
   }
 }
 
-/* 页脚 */
 footer {
-  margin-top:14px;
-  text-align:center;
-  font-size:13px;
-  opacity:0.9;
+  margin-top: 14px;
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.9;
   color: #ccc;
 }
 
-/* 复制按钮 */
 .tools {
-  display:flex;
-  gap:10px;
-  margin-top:16px;
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
 }
+
 .btn {
-  background:transparent;
-  color:var(--text);
-  border:1px solid rgba(255,255,255,0.2);
-  padding:8px 12px;
-  border-radius:10px;
-  cursor:pointer;
-  font-size:14px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
 }
+
 .btn:active {
   transform: translateY(1px);
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+  padding: 10px 22px;
+  font-size: 14px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
 }
 </style>
 </head>
@@ -139,14 +148,14 @@ footer {
 <div class="wrap">
   <div class="container">
 
-    <header style="grid-column:1 / -1;">
+    <header style="grid-column: 1 / -1;">
       <h1>骂人宝典</h1>
     </header>
 
+    <!-- Section 0 -->
     <section class="card">
       <h2>随用版 - 随地随用，瞬间伤害</h2>
-      <pre>
-抱歉我眼睛太小了看不清你有脸没脸
+      <pre id="t0">抱歉我眼睛太小了看不清你有脸没脸
 你的梦想是狼人吗狗叫这么欢
 我是密码师傅我造密码（艹你妈）
 你是从敦煌来的吗壁画（b话）那么多
@@ -165,17 +174,16 @@ footer {
 你拿观点当护照，到处违规
 觉得自己要进化成人了来找我拍照
 你唯一的优势是别人无法艹您已逝的母亲
-我每次看到你这个僵尸都嫌弃的脑子就想吐
-      </pre>
+我每次看到你这个僵尸都嫌弃的脑子就想吐</pre>
       <div class="tools">
-        <button class="btn" onclick="copyText(0)">复制随用版</button>
+        <button class="btn" onclick="copySection(0)">复制随用版</button>
       </div>
     </section>
 
+    <!-- Section 1 -->
     <section class="card">
       <h2>网战版 - 理解更慢，阴阳怪气</h2>
-      <pre>
-你先别急，我不是故意戳中你的弱点——脑子
+      <pre id="t1">你先别急，我不是故意戳中你的弱点——脑子
 你骄傲得太早了，毕竟无知的人最容易快乐
 你不是没用，你是没到能用的地方——比如垃圾桶
 你的存在提醒我，世界上什么都能被浪费
@@ -183,23 +191,22 @@ footer {
 别试图赢，我甚至怀疑你连输的资格都没达标
 你活得这么用力，只为了让别人默默感谢自己的智商
 别急着证明你错了，过程别人看着更好笑
-哦，你这么说，是在表演“无知也自信”的艺术吗？
+哦，你这么说，是在表演"无知也自信"的艺术吗？
 哈，你的逻辑能申请专利吗？大家想看看反面教材。
 真厉害，你能把明显错误说得像创新，佩服。
-哦，你在表演“自我感动”，事实看不下去
+哦，你在表演"自我感动"，事实看不下去
 我不是说你没用，我是说你连当背景板都掉色。
 你讲话的底气真足，足到能把逻辑震碎。
-是金子总会发光，你这玻璃渣子总在反光。
-      </pre>
+是金子总会发光，你这玻璃渣子总在反光。</pre>
       <div class="tools">
-        <button class="btn" onclick="copyText(1)">复制网战版</button>
+        <button class="btn" onclick="copySection(1)">复制网战版</button>
       </div>
     </section>
 
+    <!-- Section 2 -->
     <section class="card">
       <h2>情况性 - 绝地反击，越说越溜</h2>
-      <pre>
-你是小明吗，我的年龄都看不出？（当别人叫你小学生而你是中学生）
+      <pre id="t2">你是小明吗，我的年龄都看不出？（当别人叫你小学生而你是中学生）
 我把你杀了给你妈咪说声对不起好吗？（当别人说我都道歉了你还要怎样）
 我是乐子，你是悲子吗，来哭一个，看看装水足不足（当别人说你是乐子）
 那么喜欢说那咋了，要不明天把那咋了刻你墓碑上（当别人说那咋了）
@@ -207,95 +214,67 @@ footer {
 那个允许你划界的妈数量是负数吧（当别人说你越界了）
 你要有码还要造吗？（当别人开始密码师傅）
 别那么大声跟我说话，我小时候被狗吓到过。
-僵尸扒开你的脑袋看了看，失望的走了，附近的屎壳郎眼前一亮，但屎壳郎觉得稀饭填不饱肚子，失望的离开了。
-      </pre>
+僵尸扒开你的脑袋看了看，失望的走了，附近的屎壳郎眼前一亮，但屎壳郎觉得稀饭填不饱肚子，失望的离开了。</pre>
       <div class="tools">
-        <button class="btn" onclick="copyText(2)">复制情况性</button>
+        <button class="btn" onclick="copySection(2)">复制情况性</button>
       </div>
     </section>
 
+    <!-- Section 3 -->
     <section class="card">
       <h2>特殊性 - 绝对回击，见招拆招</h2>
-      <pre>
-急了 -> 被狗咬了能不急么 -> 狗改不了吃屎 -> 你是文盲吗咬和吃分不清楚啊
-      </pre>
+      <pre id="t3">急了 -> 被狗咬了能不急么 -> 狗改不了吃屎 -> 你是文盲吗咬和吃分不清楚啊</pre>
       <div class="tools">
-        <button class="btn" onclick="copyText(2)">复制特殊性</button>
+        <button class="btn" onclick="copySection(3)">复制特殊性</button>
       </div>
     </section>
 
-    <section class="card h2">
+    <!-- Section 4 -->
+    <section class="card full">
       <h2>回击性 - 伤害反弹，自身无敌</h2>
-      <pre>
-你先别急着叫，让我戴上降噪耳机尊重一下自己。
+      <pre id="t4">你先别急着叫，让我戴上降噪耳机尊重一下自己。
 你别抬杠了，你那点水平连情绪都抬不起来。
 你别以为你是话痨，你只是废话密度过高。
 怪不得你这么吵，原来脑子空的地方回声大。
 你的人生挺励志的——明明没长脑子却一直敢说话。
-放心，你说的话我不会反驳，我尊重所有脑子有困难的人。
-
-      </pre>
+放心，你说的话我不会反驳，我尊重所有脑子有困难的人。</pre>
       <div class="tools">
-        <button class="btn" onclick="copyText(2)">复制特殊性</button>
+        <button class="btn" onclick="copySection(4)">复制回击性</button>
       </div>
     </section>
-    
+
   </div>
 </div>
 
-<script>
-const blocks = [
-  `抱歉我眼睛太小了看不清你有脸没脸
-你的梦想是狼人吗狗叫这么欢
-我是密码师傅我造密码
-你是从敦煌来的吗壁画（b话）那么多
-把脑肿瘤当种子了我只想问你这个咋种（杂种）
-笑死我了真把自己当回事呢，恶心死人还有优越感了
-我觉得你是达标婚纱的设计笔，俗称达纱笔
-是什么审美的风愿意拂过你的脸庞
-你是有多怕黑才成为壁灯（b登）的
-如果破防有用还要骂人干嘛
-地球Online是有多仁慈才放你进来的
-我理解你的锄禾日当午，没妈命真苦，所以请不要叫了
-您太牛逼了，能把一头牛吹上天
-太宗，您姓糖吧
-你说话的方式真独特，独特到让人怀疑进化失败
-省省吧，你连尴尬都没资格制造
-你拿观点当护照，到处违规
-你唯一的优势是别人无法艹您已逝的母亲`,
-  `你先别急，我不是故意戳中你唯一的弱点——脑子
-你骄傲得太早了，毕竟无知的人最容易快乐
-你不是没用，你是没到能用的地方——比如垃圾桶
-你的存在提醒我，世界上什么都能被浪费
-你每次开口，都让我更相信奇迹的存在——奇迹般地浪费时间。
-别试图赢，我甚至怀疑你连输的资格都没达标
-你活得这么用力，只为了让别人默默感谢自己的智商
-别急着证明你错了，过程别人看着更好笑
-哦，你这么说，是在表演“无知也自信”的艺术吗？
-哈，你的逻辑能申请专利吗？大家想看看反面教材。
-真厉害，你能把明显错误说得像创新，佩服。
-哦，你在表演“自我感动”，事实看不下去
-觉得自己要进化成人了来找我拍照`,
-  `你是小明吗，我的年龄都看不出？（当别人叫你小学生而你是中学生）
-我把你杀了给你妈咪说声对不起好吗？（当别人说我都道歉了你还要怎样）
-我是乐子，你是悲子吗，来哭一个，看看装水足不足（当别人说你是乐子）
-那么喜欢说那咋了，要不明天把那咋了刻你墓碑上（当别人说那咋了）
-没人比你能受，没妈了还在外面叫（当别人说受着）
-那个允许你划界的妈数量是负数吧（当别人说你越界了）`
-];
+<div class="toast" id="toast">已复制到剪贴板</div>
 
-function copyText(idx){
-  navigator.clipboard?.writeText(blocks[idx]).then(()=>{
-    alert('已复制到剪贴板');
-  }).catch(()=>{
+<script>
+function copySection(idx) {
+  const text = document.getElementById('t' + idx).textContent.trim();
+  const toast = document.getElementById('toast');
+
+  function showToast() {
+    toast.style.opacity = '1';
+    setTimeout(() => { toast.style.opacity = '0'; }, 1800);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(showToast).catch(fallback);
+  } else {
+    fallback();
+  }
+
+  function fallback() {
     const ta = document.createElement('textarea');
-    ta.value = blocks[idx];
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
     document.body.appendChild(ta);
     ta.select();
-    try { document.execCommand('copy'); alert('已复制到剪贴板'); }
-    catch(e){ alert('复制失败，请手动选择文本并复制'); }
+    try { document.execCommand('copy'); showToast(); }
+    catch(e) { alert('复制失败，请手动选择文本并复制'); }
     ta.remove();
-  });
+  }
 }
 </script>
 </body>
